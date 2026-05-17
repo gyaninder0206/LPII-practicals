@@ -1,0 +1,19 @@
+Inside Server1:
+
+echo "Hello Cloud" > test.txt
+
+
+COPY KEY INTO SERVER1
+On your LOCAL machine:
+
+scp -i mykey.pem mykey.pem ubuntu@PUBLIC_IP_1:/home/ubuntu/
+
+Set Permission
+Inside Server1:
+
+chmod 400 mykey.pem
+
+SECURE FILE TRANSFER
+Now from Server1 → Server2:
+
+scp -i mykey.pem test.txt ubuntu@PRIVATE_IP_2:/home/ubuntu/
